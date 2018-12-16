@@ -1,9 +1,7 @@
-#include "stdio.h"
-
-
-int main ()
+/* Hello World program */
+#include<stdio.h>
+main ()
 {
-	printf("Hello, World!\n");
-	return 0;
+     printf("Hello World");
 }
 
