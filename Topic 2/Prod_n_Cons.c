@@ -1,3 +1,10 @@
+/*
+** Producer and comsumer implementation using pthread mutex and condition
+** main creates the threads and starts them running. They will continue
+** lopping until the program is terminated with ctrl-c
+** Chad galloway
+*/
+
 #include <stdio.h>
 #include <pthread.h>
 
