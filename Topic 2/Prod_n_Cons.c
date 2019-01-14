@@ -1,3 +1,10 @@
+/*
+** Producer and comsumer implementation using pthread mutex and condition
+** main creates the threads and starts them running. They will continue
+** lopping until the program is terminated with ctrl-c
+** Chad galloway
+*/
+
 #include <stdio.h>
 #include <pthread.h>
 
@@ -50,7 +57,7 @@ void *consumer(void *ptr) // Entry point for the comsumer thread.
 	
 	while (TRUE) {
 		pthread_mutex_lock(&the_mutex); //get exclusive access to buffer
-		while (bufferSize == 0 ) pthread_cond_wait(&consumer_waiting, &the_mutex);
+		while (bufferSize == 0 ) pthread_cond_wait(&consumer_waiting, &the_mutex);  // Buffer empty wait
 		w = get();  //take_item out of buffer
 		consume(w);				
 		pthread_cond_signal(&producer_waiting); 	//wake upproducer
